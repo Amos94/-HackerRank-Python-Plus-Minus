@@ -1,33 +1,17 @@
-#!/bin/python3
+n = int(input())
 
-import sys
-from decimal import *
+arr = list(map(int, input().split()))
+pos=0
+neg=0
+zero=0
+for i in arr:
+ if i>0:
+  pos=pos+1
+ elif i<0:
+  neg=neg+1
+ else:
+  zero=zero+1
+print("%.6f" % (pos/n))
+print("%.6f" %(neg/n))
 
-n = int(input().strip())
-arr = [int(arr_temp) for arr_temp in input().strip().split(' ')]
-
-numOfPositives = 0
-numOfNegatives = 0
-numOfZeros = 0
-
-for integer in arr:
-    if (integer > 0):
-        numOfPositives = numOfPositives + 1
-
-    elif (integer < 0):
-        numOfNegatives = numOfNegatives + 1
-
-    else:
-        numOfZeros = numOfZeros + 1
-
-fractionOfPositives = Decimal(numOfPositives) / Decimal(n)
-fractionOfPositivesWithPrecision = format(fractionOfPositives, '.6f')
-print(fractionOfPositivesWithPrecision)
-
-fractionOfNegatives = Decimal(numOfNegatives) / Decimal(n)
-fractionOfNegativesWithPrecision = format(fractionOfNegatives, '.6f')
-print(fractionOfNegativesWithPrecision)
-
-fractionOfZeros = Decimal(numOfZeros) / Decimal(n)
-fractionOfZerosWithPrecision = format(fractionOfZeros, '.6f')
-print(fractionOfZerosWithPrecision)
+print("%.6f" %(zero/n))
